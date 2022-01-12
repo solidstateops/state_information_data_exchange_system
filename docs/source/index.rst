@@ -10,6 +10,9 @@ Welcome to State Information Data exchange System's documentation!
 
 .. toctree::
    EarningsVerification
+   SeparationInformation
+   SeparationInformationV2022
+   QueueMessages
    Swagger
 
 API Documentation
