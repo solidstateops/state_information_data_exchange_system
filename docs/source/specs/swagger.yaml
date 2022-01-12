@@ -96,6 +96,21 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/FluentValidation.Results.ValidationResult'
+  /QueueConsumer:
+    get:
+      tags:
+        - QueueConsumer
+      operationId: QueueConsumer_Index
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Service.Controllers.QueueMessages'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Service.Controllers.QueueMessages'
   /SeparationInformation/SendFakeResponseCollection:
     post:
       tags:
@@ -1030,513 +1045,46 @@ components:
           $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PullType'
       additionalProperties: false
       x-nullable: true
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.TotalEarnedWagesNeededIndicatorCode:
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PostAcknowledgementMessageCode:
       enum:
-        - Available
-        - NotAvailable
-        - NotAvailableButProceed
+        - FileSuccess
+        - FileFailure
+        - PartialSuccess
       type: string
       x-nullable: false
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.TotalWeeksWorkedNeededIndicatorCodes:
-      enum:
-        - Available
-        - NotCurrentlyAvailable
-        - NotAvailable
-      type: string
-      x-nullable: false
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.EmployerSeparationReasonCode:
-      enum:
-        - TemporaryLayoff
-        - LaidOffOrLackOfWork
-        - FiredOrDischarged
-        - VacationOrHolidayShutdown
-        - AskedToResign
-        - VoluntaryQuitOrSeparation
-        - SchoolEmployeeLikelyReturn
-        - SchoolEmployeeUnlikelyReturn
-        - StillEmployedFullTime
-        - StillEmployedPartTime
-        - StillEmployedHoursReduced
-        - OnCallOrTemporaryStatus
-        - LeaveOfAbsence
-        - Retirement
-        - DisciplinarySuspension
-        - LaborDispute
-        - ProfessionalAthleteBetweenSeasons
-        - DisasterRelatedSeparation
-        - NotListedAbove
-        - NeverEmployedHere
-        - TpaDoesNotRepresent
-        - RefuseToProvide
-      type: string
-      x-nullable: false
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.LaborDisputeType:
-      enum:
-        - Strike
-        - Lockout
-      type: string
-      x-nullable: false
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.RemunerationTypeCode:
-      enum:
-        - Severance
-        - Separation
-        - Vacation
-        - Holiday
-        - Pension
-        - ProfitSharing
-        - BonusPay
-        - WagesInLieuOfNotice
-        - BackPayAward
-        - ResidualPayments
-        - Commissions
-        - Sick
-        - Disability
-        - NotListedAbove
-      type: string
-      x-nullable: false
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.RemunerationPeriodFrequencyCode:
-      enum:
-        - Daily
-        - Weekly
-        - BiWeekly
-        - SemiMonthly
-        - Monthly
-        - Quarterly
-        - LumpSum
-      type: string
-      x-nullable: false
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Remuneration:
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.ErrorOccurrenceType:
       type: object
       properties:
-        remunerationTypeCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.RemunerationTypeCode'
-        remunerationAmountPerPeriod:
-          type: number
-          format: decimal
-          x-nullable: false
-        remunerationPeriodFrequencyCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.RemunerationPeriodFrequencyCode'
-        dateRemunerationIssued:
-          type: string
-          format: date-time
-          x-nullable: false
-        employerAllocationInd:
-          type: boolean
-          x-nullable: false
-        allocationBeginDate:
-          type: string
-          format: date-time
-          nullable: true
-          x-nullable: true
-        allocationEndDate:
-          type: string
-          format: date-time
-          nullable: true
-          x-nullable: true
-      additionalProperties: false
-      x-nullable: true
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.DischargeReasonCode:
-      enum:
-        - NotQualified
-        - Absentieeism
-        - FailedToFollowInstructions
-        - DrugsAndAlcohol
-        - IllegalActs
-        - Medical
-        - FailedEmploymentRequirements
-        - NotListedAbove
-      type: string
-      x-nullable: false
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.DischargeExplanationCode:
-      enum:
-        - Written
-        - Verbal
-        - Both
-      type: string
-      x-nullable: false
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.PriorIncident:
-      type: object
-      properties:
-        priorIncidentDate:
-          type: string
-          format: date-time
-          x-nullable: false
-        priorIncidentReason:
+        errorCode:
           type: string
           nullable: true
           x-nullable: true
-        priorIncidentWarningInd:
-          type: boolean
-          x-nullable: false
-        priorIncidentWarningDate:
+        sequenceNumber:
           type: string
-          format: date-time
           nullable: true
           x-nullable: true
-        priorWarningDescription:
+        errorMessage:
           type: string
           nullable: true
           x-nullable: true
       additionalProperties: false
       x-nullable: true
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.VoluntarySepReasonCodes:
-      enum:
-        - NoReasonGiven
-        - OtherEmployment
-        - HealthReasons
-        - JobDissatisfaction
-        - InLieuOfDischarge
-        - PersonalReasons
-        - Abandonment
-        - Retirement
-        - WorkingConditions
-      type: string
-      x-nullable: false
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.HiringChangesCode:
-      enum:
-        - NoChange
-        - HoursChanged
-        - JobDutiesChanged
-        - RateOfPayChanged
-        - ChangedJobLocation
-        - NotListedAbove
-      type: string
-      x-nullable: false
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.DescriptionOfAttachmentCodes:
-      enum:
-        - RTF
-        - PDF
-        - TXT
-        - TIFF
-        - CSV
-      type: string
-      x-nullable: false
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationResponseAttachment:
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.FailedRequestRecord:
       type: object
       properties:
-        filePath:
-          type: string
-          nullable: true
-          x-nullable: true
-        containerName:
-          type: string
-          nullable: true
-          x-nullable: true
-        uniqueId:
-          type: string
-          nullable: true
-          x-nullable: true
-        fileTypeCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.DescriptionOfAttachmentCodes'
-        typeOfDocument:
-          type: string
-          nullable: true
-          x-nullable: true
-      additionalProperties: false
-      x-nullable: true
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationResponseRecord:
-      type: object
-      properties:
-        correctedEmployerName:
-          type: string
-          nullable: true
-          x-nullable: true
-        correctedStateEmployerAccountNbr:
-          type: string
-          nullable: true
-          x-nullable: true
-        correctedFederalEmployerIdentificationNumber:
-          type: string
-          nullable: true
-          x-nullable: true
-        otherSocialSecurityNumber:
-          type: string
-          nullable: true
-          x-nullable: true
-        claimantNameWorkedAsForEmployer:
-          type: string
-          nullable: true
-          x-nullable: true
-        seasonalEmploymentIndicator:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        employerReportedClaimantFirstDayofWork:
-          type: string
-          format: date-time
-          nullable: true
-          x-nullable: true
-        employerReportedClaimantLastDayofWork:
-          type: string
-          format: date-time
-          nullable: true
-          x-nullable: true
-        effectiveSeparationDate:
-          type: string
-          format: date-time
-          nullable: true
-          x-nullable: true
-        totalEarnedWagesNeededInd:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.TotalEarnedWagesNeededIndicatorCode'
-        totalEarnedWages:
-          type: number
-          format: decimal
-          nullable: true
-          x-nullable: true
-        totalWeeksWorkedNeededInd:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.TotalWeeksWorkedNeededIndicatorCodes'
-        totalWeeksWorked:
-          type: integer
-          format: int32
-          nullable: true
-          x-nullable: true
-        wagesEarnedAfterClaimEffectiveDate:
-          type: number
-          format: decimal
-          nullable: true
-          x-nullable: true
-        numberOfHoursWorkedAfterClaimEffectiveDate:
-          type: integer
-          format: int32
-          nullable: true
-          x-nullable: true
-        averageWeeklyWage:
-          type: number
-          format: decimal
-          nullable: true
-          x-nullable: true
-        employerSeparationReasonCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.EmployerSeparationReasonCode'
-        returnToWorkInd:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        returnToWorkDate:
-          type: string
-          format: date-time
-          nullable: true
-          x-nullable: true
-        workingAllAvailableHoursInd:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        notWorkingAvailableHoursReason:
-          type: string
-          nullable: true
-          x-nullable: true
-        laborDisputeTypeInd:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.LaborDisputeType'
-        remunerationInd:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        remunerations:
-          type: array
-          items:
-            $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Remuneration'
-          nullable: true
-          x-nullable: true
-        averageNumberofHoursWorkedperWeek:
-          type: integer
-          format: int32
-          nullable: true
-          x-nullable: true
-        mandatoryRetirementInd:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        mandatoryPension:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        contributoryorNotContributoryClaimantInd:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        claimantPensionContributionPercent:
-          type: integer
-          format: int32
-          nullable: true
-          x-nullable: true
-        pensionComments:
-          type: string
-          nullable: true
-          x-nullable: true
-        employerSepReasonComments:
-          type: string
-          nullable: true
-          x-nullable: true
-        dischargeReasonCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.DischargeReasonCode'
-        finalIncidentReason:
-          type: string
-          nullable: true
-          x-nullable: true
-        finalIncidentDate:
-          type: string
-          format: date-time
-          nullable: true
-          x-nullable: true
-        violateCompanyPolicyInd:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        dischargePolicyAwareInd:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        dischargePolicyAwareExplanationCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.DischargeExplanationCode'
-        priorIncidents:
-          type: array
-          items:
-            $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.PriorIncident'
-          nullable: true
-          x-nullable: true
-        whoDischargedName:
-          type: string
-          nullable: true
-          x-nullable: true
-        whoDischargedTitle:
-          type: string
-          nullable: true
-          x-nullable: true
-        dischargeReasonComments:
-          type: string
-          nullable: true
-          x-nullable: true
-        voluntarySepReasonCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.VoluntarySepReasonCodes'
-        hiringAgreementChangesCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.HiringChangesCode'
-        hiringAgreementChangesComments:
-          type: string
-          nullable: true
-          x-nullable: true
-        claimantActionsToAvoidQuitInd:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        actionTakenComments:
-          type: string
-          nullable: true
-          x-nullable: true
-        continuingWorkAvailableInd:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        voluntarySepReasonComments:
-          type: string
-          nullable: true
-          x-nullable: true
-        attachments:
-          type: array
-          items:
-            $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationResponseAttachment'
-          nullable: true
-          x-nullable: true
-        preparerTypeCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PreparerTypeCode'
-        preparerCompanyName:
-          type: string
-          nullable: true
-          x-nullable: true
-        preparerTelephoneNumberPlusExt:
-          type: string
-          nullable: true
-          x-nullable: true
-        preparerContactName:
-          type: string
-          nullable: true
-          x-nullable: true
-        preparerTitle:
-          type: string
-          nullable: true
-          x-nullable: true
-        preparerFaxNbr:
-          type: string
-          nullable: true
-          x-nullable: true
-        preparerEmailAddress:
-          type: string
-          nullable: true
-          x-nullable: true
-        amendedResponse:
-          type: string
-          nullable: true
-          x-nullable: true
-        amendedResponseDescription:
-          type: string
-          nullable: true
-          x-nullable: true
-        claimantJobTitle:
-          type: string
-          nullable: true
-          x-nullable: true
         stateRequestRecordGuid:
           type: string
           format: uuid
           x-nullable: false
-        socialSecurityNumber:
-          type: string
-          nullable: true
-          x-nullable: true
-        claimNumber:
-          type: string
-          nullable: true
-          x-nullable: true
-        stateEmployerAccountNbr:
-          type: string
-          nullable: true
-          x-nullable: true
-        employerName:
-          type: string
-          nullable: true
-          x-nullable: true
-        claimantLastName:
-          type: string
-          nullable: true
-          x-nullable: true
-        otherLastName:
-          type: string
-          nullable: true
-          x-nullable: true
-        claimantFirstName:
-          type: string
-          nullable: true
-          x-nullable: true
-        claimantMiddleInitial:
-          type: string
-          nullable: true
-          x-nullable: true
-        claimantSuffix:
-          type: string
-          nullable: true
-          x-nullable: true
-        claimantReportedReturnToWorkDate:
-          type: string
-          format: date-time
-          nullable: true
-          x-nullable: true
-        requestDate:
-          type: string
-          format: date-time
-          x-nullable: false
-        responseDueDate:
-          type: string
-          format: date-time
-          x-nullable: false
-        claimEffectiveDate:
-          type: string
-          format: date-time
-          x-nullable: false
-        brokerRecordTransactionNumber:
-          type: string
+        errorOccurrence:
+          type: array
+          items:
+            $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.ErrorOccurrenceType'
           nullable: true
           x-nullable: true
       additionalProperties: false
       x-nullable: true
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationResponseCollection:
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationRequestAcknowledgement:
       type: object
       properties:
         to:
@@ -1547,286 +1095,48 @@ components:
           type: string
           nullable: true
           x-nullable: true
-        requestGuid:
+        stateRequestFileGuid:
           type: string
           format: uuid
           x-nullable: false
-        responses:
-          type: array
-          items:
-            $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationResponseRecord'
-          nullable: true
-          x-nullable: true
-        stateSoapTransactionNumber:
-          type: string
-          nullable: true
-          x-nullable: true
-      additionalProperties: false
-      x-nullable: true
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestQuery:
-      type: object
-      properties:
-        transactionNumber:
-          type: string
-          nullable: true
-          x-nullable: true
-        beginDate:
-          type: string
-          format: date-time
-          nullable: true
-          x-nullable: true
-        endDate:
-          type: string
-          format: date-time
-          nullable: true
-          x-nullable: true
-        requestingState:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.StateAbrCodes'
-        pullType:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PullType'
-      additionalProperties: false
-      x-nullable: true
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.EmployerTypeCode:
-      enum:
-        - LastBasePeriodandLagQuarterEmployer
-        - LastEmployer
-        - BasePeriodEmployer
-        - LagQuarterEmployer
-        - LastandBasePeriodEmployer
-        - LastandLagQuarterEmployer
-        - BasePeriodandLagQuarterEmploye
-      type: string
-      x-nullable: false
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.TypeOfClaimCode:
-      enum:
-        - NewInitialClaim
-        - AdditionalClaim
-      type: string
-      x-nullable: false
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.WagesWeeksNeededCode:
-      enum:
-        - WagesOnly
-        - WeeksAndWages
-        - NotNeeded
-      type: string
-      x-nullable: false
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.CliamantSeparationReasonCode:
-      enum:
-        - TemporaryLayoff
-        - LaidOffLackofWork
-        - FiredDischarged
-        - VacationHolidayShutdown
-        - AskedtoResign
-        - VoluntaryQuitSeparation
-        - SchoolEmployeeBetweenSemestersorTermsLikelytoReturn
-        - SchoolEmployeeBetweenSemestersorTermsNotLikelytoReturn
-        - StillEmployedFullTime
-        - StillEmployedPartTime
-        - StillEmployedHoursReducedbyEmployer
-        - OnCallorTemporaryStatus
-        - LeaveofAbsence
-        - Retirement
-        - DisciplinarySuspension
-        - LaborDispute
-        - ProfessionalAthleteBetweenSportsSeasons
-        - DisasterRelatedSeparation
-        - NotListedAbove
-        - Notprovided
-      type: string
-      x-nullable: false
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.ActionableAttachment:
-      enum:
-        - InformationalOnlyGeneric
-        - InformationalOnlyEmployerClaimantSpecific
-        - RequiresActionStandardQuestionSet
-        - RequiresActionAdhocQuestionSet
-      type: string
-      x-nullable: false
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.Attachment.SeparationInformationRequestAttachment:
-      type: object
-      properties:
-        actionableAttachment:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.ActionableAttachment'
-        filePath:
-          type: string
-          nullable: true
-          x-nullable: true
-        containerName:
-          type: string
-          nullable: true
-          x-nullable: true
-        uniqueId:
-          type: string
-          nullable: true
-          x-nullable: true
-        fileTypeCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.DescriptionOfAttachmentCodes'
-        typeOfDocument:
-          type: string
-          nullable: true
-          x-nullable: true
-      additionalProperties: false
-      x-nullable: true
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestRecord:
-      type: object
-      properties:
-        federalEmployerIdentificationNumber:
-          type: string
-          nullable: true
-          x-nullable: true
-        typeofEmployerCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.EmployerTypeCode'
-        typeofClaimCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.TypeOfClaimCode'
-        benefitYearBeginDate:
-          type: string
-          format: date-time
-          x-nullable: false
-        requestingStateAbbreviation:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.StateAbrCodes'
-        uiOfficeName:
-          type: string
-          nullable: true
-          x-nullable: true
-        uiOfficePhone:
-          type: string
-          nullable: true
-          x-nullable: true
-        uiOfficeFax:
-          type: string
-          nullable: true
-          x-nullable: true
-        claimantJobTitle:
-          type: string
-          nullable: true
-          x-nullable: true
-        claimantReportedFirstDayofWork:
-          type: string
-          format: date-time
-          nullable: true
-          x-nullable: true
-        claimantReportedLastDayofWork:
-          type: string
-          format: date-time
-          nullable: true
-          x-nullable: true
-        wagesWeeksNeededCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.WagesWeeksNeededCode'
-        wagesNeededBeginDate:
-          type: string
-          format: date-time
-          nullable: true
-          x-nullable: true
-        wagesNeededEndDate:
-          type: string
-          format: date-time
-          nullable: true
-          x-nullable: true
-        claimantSepReasonCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.CliamantSeparationReasonCode'
-        claimantSepReasonComments:
-          type: string
-          nullable: true
-          x-nullable: true
-        formNumber:
-          type: string
-          nullable: true
-          x-nullable: true
-        pin:
-          type: string
-          nullable: true
-          x-nullable: true
-        attachments:
-          type: array
-          items:
-            $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Attachment.SeparationInformationRequestAttachment'
-          nullable: true
-          x-nullable: true
-        stateRequestRecordGuid:
-          type: string
-          format: uuid
-          x-nullable: false
-        socialSecurityNumber:
-          type: string
-          nullable: true
-          x-nullable: true
-        claimNumber:
-          type: string
-          nullable: true
-          x-nullable: true
-        stateEmployerAccountNbr:
-          type: string
-          nullable: true
-          x-nullable: true
-        employerName:
-          type: string
-          nullable: true
-          x-nullable: true
-        claimantLastName:
-          type: string
-          nullable: true
-          x-nullable: true
-        otherLastName:
-          type: string
-          nullable: true
-          x-nullable: true
-        claimantFirstName:
-          type: string
-          nullable: true
-          x-nullable: true
-        claimantMiddleInitial:
-          type: string
-          nullable: true
-          x-nullable: true
-        claimantSuffix:
-          type: string
-          nullable: true
-          x-nullable: true
-        claimantReportedReturnToWorkDate:
-          type: string
-          format: date-time
-          nullable: true
-          x-nullable: true
-        requestDate:
-          type: string
-          format: date-time
-          x-nullable: false
-        responseDueDate:
-          type: string
-          format: date-time
-          x-nullable: false
-        claimEffectiveDate:
-          type: string
-          format: date-time
-          x-nullable: false
-        brokerRecordTransactionNumber:
-          type: string
-          nullable: true
-          x-nullable: true
-      additionalProperties: false
-      x-nullable: true
-    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestCollection:
-      type: object
-      properties:
+        messageCode:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PostAcknowledgementMessageCode'
         id:
           type: string
           nullable: true
           x-nullable: true
-        sein:
-          type: string
-          nullable: true
-          x-nullable: true
-        pin:
-          type: string
-          nullable: true
-          x-nullable: true
-        requestRecords:
+        failedRequestRecords:
           type: array
           items:
-            $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestRecord'
+            $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.FailedRequestRecord'
           nullable: true
           x-nullable: true
+        numberOfRequestRecordsReceived:
+          type: integer
+          format: int32
+          x-nullable: false
+        numberOfRequestRecordsInError:
+          type: integer
+          format: int32
+          x-nullable: false
+        dateStartedReceivingTransmission:
+          type: string
+          format: date-time
+          x-nullable: false
+        dateFinishedReceivingTransmission:
+          type: string
+          format: date-time
+          x-nullable: false
+      additionalProperties: false
+      x-nullable: true
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Requests.SeparationInformationRequestAcknowledgement:
+      type: object
+      properties:
         to:
+          type: string
+          nullable: true
+          x-nullable: true
+        from:
           type: string
           nullable: true
           x-nullable: true
@@ -1834,14 +1144,33 @@ components:
           type: string
           format: uuid
           x-nullable: false
-      additionalProperties: false
-      x-nullable: true
-    Microsoft.AspNetCore.Mvc.OkResult:
-      type: object
-      properties:
-        statusCode:
+        messageCode:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PostAcknowledgementMessageCode'
+        id:
+          type: string
+          nullable: true
+          x-nullable: true
+        failedRequestRecords:
+          type: array
+          items:
+            $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.FailedRequestRecord'
+          nullable: true
+          x-nullable: true
+        numberOfRequestRecordsReceived:
           type: integer
           format: int32
+          x-nullable: false
+        numberOfRequestRecordsInError:
+          type: integer
+          format: int32
+          x-nullable: false
+        dateStartedReceivingTransmission:
+          type: string
+          format: date-time
+          x-nullable: false
+        dateFinishedReceivingTransmission:
+          type: string
+          format: date-time
           x-nullable: false
       additionalProperties: false
       x-nullable: true
@@ -3318,6 +2647,834 @@ components:
           type: string
           nullable: true
           x-nullable: true
+      additionalProperties: false
+      x-nullable: true
+    SolidStateOps.StateInformationDataExchangeSystem.Service.Controllers.QueueMessages:
+      type: object
+      properties:
+        earningsVerificationRequestAcknowledgement:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationRequestAcknowledgement'
+        earningsVerificationResponseCollection:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationResponseCollection'
+        separationInformationRequestAcknowledgement:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Requests.SeparationInformationRequestAcknowledgement'
+        separationInformationResponseCollection:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Responses.SeparationInformationResponseCollection'
+      additionalProperties: false
+      x-nullable: true
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.TotalEarnedWagesNeededIndicatorCode:
+      enum:
+        - Available
+        - NotAvailable
+        - NotAvailableButProceed
+      type: string
+      x-nullable: false
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.TotalWeeksWorkedNeededIndicatorCodes:
+      enum:
+        - Available
+        - NotCurrentlyAvailable
+        - NotAvailable
+      type: string
+      x-nullable: false
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.EmployerSeparationReasonCode:
+      enum:
+        - TemporaryLayoff
+        - LaidOffOrLackOfWork
+        - FiredOrDischarged
+        - VacationOrHolidayShutdown
+        - AskedToResign
+        - VoluntaryQuitOrSeparation
+        - SchoolEmployeeLikelyReturn
+        - SchoolEmployeeUnlikelyReturn
+        - StillEmployedFullTime
+        - StillEmployedPartTime
+        - StillEmployedHoursReduced
+        - OnCallOrTemporaryStatus
+        - LeaveOfAbsence
+        - Retirement
+        - DisciplinarySuspension
+        - LaborDispute
+        - ProfessionalAthleteBetweenSeasons
+        - DisasterRelatedSeparation
+        - NotListedAbove
+        - NeverEmployedHere
+        - TpaDoesNotRepresent
+        - RefuseToProvide
+      type: string
+      x-nullable: false
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.LaborDisputeType:
+      enum:
+        - Strike
+        - Lockout
+      type: string
+      x-nullable: false
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.RemunerationTypeCode:
+      enum:
+        - Severance
+        - Separation
+        - Vacation
+        - Holiday
+        - Pension
+        - ProfitSharing
+        - BonusPay
+        - WagesInLieuOfNotice
+        - BackPayAward
+        - ResidualPayments
+        - Commissions
+        - Sick
+        - Disability
+        - NotListedAbove
+      type: string
+      x-nullable: false
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.RemunerationPeriodFrequencyCode:
+      enum:
+        - Daily
+        - Weekly
+        - BiWeekly
+        - SemiMonthly
+        - Monthly
+        - Quarterly
+        - LumpSum
+      type: string
+      x-nullable: false
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Remuneration:
+      type: object
+      properties:
+        remunerationTypeCode:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.RemunerationTypeCode'
+        remunerationAmountPerPeriod:
+          type: number
+          format: decimal
+          x-nullable: false
+        remunerationPeriodFrequencyCode:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.RemunerationPeriodFrequencyCode'
+        dateRemunerationIssued:
+          type: string
+          format: date-time
+          x-nullable: false
+        employerAllocationInd:
+          type: boolean
+          x-nullable: false
+        allocationBeginDate:
+          type: string
+          format: date-time
+          nullable: true
+          x-nullable: true
+        allocationEndDate:
+          type: string
+          format: date-time
+          nullable: true
+          x-nullable: true
+      additionalProperties: false
+      x-nullable: true
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.DischargeReasonCode:
+      enum:
+        - NotQualified
+        - Absentieeism
+        - FailedToFollowInstructions
+        - DrugsAndAlcohol
+        - IllegalActs
+        - Medical
+        - FailedEmploymentRequirements
+        - NotListedAbove
+      type: string
+      x-nullable: false
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.DischargeExplanationCode:
+      enum:
+        - Written
+        - Verbal
+        - Both
+      type: string
+      x-nullable: false
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.PriorIncident:
+      type: object
+      properties:
+        priorIncidentDate:
+          type: string
+          format: date-time
+          x-nullable: false
+        priorIncidentReason:
+          type: string
+          nullable: true
+          x-nullable: true
+        priorIncidentWarningInd:
+          type: boolean
+          x-nullable: false
+        priorIncidentWarningDate:
+          type: string
+          format: date-time
+          nullable: true
+          x-nullable: true
+        priorWarningDescription:
+          type: string
+          nullable: true
+          x-nullable: true
+      additionalProperties: false
+      x-nullable: true
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.VoluntarySepReasonCodes:
+      enum:
+        - NoReasonGiven
+        - OtherEmployment
+        - HealthReasons
+        - JobDissatisfaction
+        - InLieuOfDischarge
+        - PersonalReasons
+        - Abandonment
+        - Retirement
+        - WorkingConditions
+      type: string
+      x-nullable: false
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.HiringChangesCode:
+      enum:
+        - NoChange
+        - HoursChanged
+        - JobDutiesChanged
+        - RateOfPayChanged
+        - ChangedJobLocation
+        - NotListedAbove
+      type: string
+      x-nullable: false
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.DescriptionOfAttachmentCodes:
+      enum:
+        - RTF
+        - PDF
+        - TXT
+        - TIFF
+        - CSV
+      type: string
+      x-nullable: false
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationResponseAttachment:
+      type: object
+      properties:
+        filePath:
+          type: string
+          nullable: true
+          x-nullable: true
+        containerName:
+          type: string
+          nullable: true
+          x-nullable: true
+        uniqueId:
+          type: string
+          nullable: true
+          x-nullable: true
+        fileTypeCode:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.DescriptionOfAttachmentCodes'
+        typeOfDocument:
+          type: string
+          nullable: true
+          x-nullable: true
+      additionalProperties: false
+      x-nullable: true
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationResponseRecord:
+      type: object
+      properties:
+        correctedEmployerName:
+          type: string
+          nullable: true
+          x-nullable: true
+        correctedStateEmployerAccountNbr:
+          type: string
+          nullable: true
+          x-nullable: true
+        correctedFederalEmployerIdentificationNumber:
+          type: string
+          nullable: true
+          x-nullable: true
+        otherSocialSecurityNumber:
+          type: string
+          nullable: true
+          x-nullable: true
+        claimantNameWorkedAsForEmployer:
+          type: string
+          nullable: true
+          x-nullable: true
+        seasonalEmploymentIndicator:
+          type: boolean
+          nullable: true
+          x-nullable: true
+        employerReportedClaimantFirstDayofWork:
+          type: string
+          format: date-time
+          nullable: true
+          x-nullable: true
+        employerReportedClaimantLastDayofWork:
+          type: string
+          format: date-time
+          nullable: true
+          x-nullable: true
+        effectiveSeparationDate:
+          type: string
+          format: date-time
+          nullable: true
+          x-nullable: true
+        totalEarnedWagesNeededInd:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.TotalEarnedWagesNeededIndicatorCode'
+        totalEarnedWages:
+          type: number
+          format: decimal
+          nullable: true
+          x-nullable: true
+        totalWeeksWorkedNeededInd:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.TotalWeeksWorkedNeededIndicatorCodes'
+        totalWeeksWorked:
+          type: integer
+          format: int32
+          nullable: true
+          x-nullable: true
+        wagesEarnedAfterClaimEffectiveDate:
+          type: number
+          format: decimal
+          nullable: true
+          x-nullable: true
+        numberOfHoursWorkedAfterClaimEffectiveDate:
+          type: integer
+          format: int32
+          nullable: true
+          x-nullable: true
+        averageWeeklyWage:
+          type: number
+          format: decimal
+          nullable: true
+          x-nullable: true
+        employerSeparationReasonCode:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.EmployerSeparationReasonCode'
+        returnToWorkInd:
+          type: boolean
+          nullable: true
+          x-nullable: true
+        returnToWorkDate:
+          type: string
+          format: date-time
+          nullable: true
+          x-nullable: true
+        workingAllAvailableHoursInd:
+          type: boolean
+          nullable: true
+          x-nullable: true
+        notWorkingAvailableHoursReason:
+          type: string
+          nullable: true
+          x-nullable: true
+        laborDisputeTypeInd:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.LaborDisputeType'
+        remunerationInd:
+          type: boolean
+          nullable: true
+          x-nullable: true
+        remunerations:
+          type: array
+          items:
+            $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Remuneration'
+          nullable: true
+          x-nullable: true
+        averageNumberofHoursWorkedperWeek:
+          type: integer
+          format: int32
+          nullable: true
+          x-nullable: true
+        mandatoryRetirementInd:
+          type: boolean
+          nullable: true
+          x-nullable: true
+        mandatoryPension:
+          type: boolean
+          nullable: true
+          x-nullable: true
+        contributoryorNotContributoryClaimantInd:
+          type: boolean
+          nullable: true
+          x-nullable: true
+        claimantPensionContributionPercent:
+          type: integer
+          format: int32
+          nullable: true
+          x-nullable: true
+        pensionComments:
+          type: string
+          nullable: true
+          x-nullable: true
+        employerSepReasonComments:
+          type: string
+          nullable: true
+          x-nullable: true
+        dischargeReasonCode:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.DischargeReasonCode'
+        finalIncidentReason:
+          type: string
+          nullable: true
+          x-nullable: true
+        finalIncidentDate:
+          type: string
+          format: date-time
+          nullable: true
+          x-nullable: true
+        violateCompanyPolicyInd:
+          type: boolean
+          nullable: true
+          x-nullable: true
+        dischargePolicyAwareInd:
+          type: boolean
+          nullable: true
+          x-nullable: true
+        dischargePolicyAwareExplanationCode:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.DischargeExplanationCode'
+        priorIncidents:
+          type: array
+          items:
+            $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.PriorIncident'
+          nullable: true
+          x-nullable: true
+        whoDischargedName:
+          type: string
+          nullable: true
+          x-nullable: true
+        whoDischargedTitle:
+          type: string
+          nullable: true
+          x-nullable: true
+        dischargeReasonComments:
+          type: string
+          nullable: true
+          x-nullable: true
+        voluntarySepReasonCode:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.VoluntarySepReasonCodes'
+        hiringAgreementChangesCode:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.HiringChangesCode'
+        hiringAgreementChangesComments:
+          type: string
+          nullable: true
+          x-nullable: true
+        claimantActionsToAvoidQuitInd:
+          type: boolean
+          nullable: true
+          x-nullable: true
+        actionTakenComments:
+          type: string
+          nullable: true
+          x-nullable: true
+        continuingWorkAvailableInd:
+          type: boolean
+          nullable: true
+          x-nullable: true
+        voluntarySepReasonComments:
+          type: string
+          nullable: true
+          x-nullable: true
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationResponseAttachment'
+          nullable: true
+          x-nullable: true
+        preparerTypeCode:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PreparerTypeCode'
+        preparerCompanyName:
+          type: string
+          nullable: true
+          x-nullable: true
+        preparerTelephoneNumberPlusExt:
+          type: string
+          nullable: true
+          x-nullable: true
+        preparerContactName:
+          type: string
+          nullable: true
+          x-nullable: true
+        preparerTitle:
+          type: string
+          nullable: true
+          x-nullable: true
+        preparerFaxNbr:
+          type: string
+          nullable: true
+          x-nullable: true
+        preparerEmailAddress:
+          type: string
+          nullable: true
+          x-nullable: true
+        amendedResponse:
+          type: string
+          nullable: true
+          x-nullable: true
+        amendedResponseDescription:
+          type: string
+          nullable: true
+          x-nullable: true
+        claimantJobTitle:
+          type: string
+          nullable: true
+          x-nullable: true
+        stateRequestRecordGuid:
+          type: string
+          format: uuid
+          x-nullable: false
+        socialSecurityNumber:
+          type: string
+          nullable: true
+          x-nullable: true
+        claimNumber:
+          type: string
+          nullable: true
+          x-nullable: true
+        stateEmployerAccountNbr:
+          type: string
+          nullable: true
+          x-nullable: true
+        employerName:
+          type: string
+          nullable: true
+          x-nullable: true
+        claimantLastName:
+          type: string
+          nullable: true
+          x-nullable: true
+        otherLastName:
+          type: string
+          nullable: true
+          x-nullable: true
+        claimantFirstName:
+          type: string
+          nullable: true
+          x-nullable: true
+        claimantMiddleInitial:
+          type: string
+          nullable: true
+          x-nullable: true
+        claimantSuffix:
+          type: string
+          nullable: true
+          x-nullable: true
+        claimantReportedReturnToWorkDate:
+          type: string
+          format: date-time
+          nullable: true
+          x-nullable: true
+        requestDate:
+          type: string
+          format: date-time
+          x-nullable: false
+        responseDueDate:
+          type: string
+          format: date-time
+          x-nullable: false
+        claimEffectiveDate:
+          type: string
+          format: date-time
+          x-nullable: false
+        brokerRecordTransactionNumber:
+          type: string
+          nullable: true
+          x-nullable: true
+      additionalProperties: false
+      x-nullable: true
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationResponseCollection:
+      type: object
+      properties:
+        to:
+          type: string
+          nullable: true
+          x-nullable: true
+        from:
+          type: string
+          nullable: true
+          x-nullable: true
+        requestGuid:
+          type: string
+          format: uuid
+          x-nullable: false
+        responses:
+          type: array
+          items:
+            $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationResponseRecord'
+          nullable: true
+          x-nullable: true
+        stateSoapTransactionNumber:
+          type: string
+          nullable: true
+          x-nullable: true
+      additionalProperties: false
+      x-nullable: true
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestQuery:
+      type: object
+      properties:
+        transactionNumber:
+          type: string
+          nullable: true
+          x-nullable: true
+        beginDate:
+          type: string
+          format: date-time
+          nullable: true
+          x-nullable: true
+        endDate:
+          type: string
+          format: date-time
+          nullable: true
+          x-nullable: true
+        requestingState:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.StateAbrCodes'
+        pullType:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PullType'
+      additionalProperties: false
+      x-nullable: true
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.EmployerTypeCode:
+      enum:
+        - LastBasePeriodandLagQuarterEmployer
+        - LastEmployer
+        - BasePeriodEmployer
+        - LagQuarterEmployer
+        - LastandBasePeriodEmployer
+        - LastandLagQuarterEmployer
+        - BasePeriodandLagQuarterEmploye
+      type: string
+      x-nullable: false
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.TypeOfClaimCode:
+      enum:
+        - NewInitialClaim
+        - AdditionalClaim
+      type: string
+      x-nullable: false
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.WagesWeeksNeededCode:
+      enum:
+        - WagesOnly
+        - WeeksAndWages
+        - NotNeeded
+      type: string
+      x-nullable: false
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.CliamantSeparationReasonCode:
+      enum:
+        - TemporaryLayoff
+        - LaidOffLackofWork
+        - FiredDischarged
+        - VacationHolidayShutdown
+        - AskedtoResign
+        - VoluntaryQuitSeparation
+        - SchoolEmployeeBetweenSemestersorTermsLikelytoReturn
+        - SchoolEmployeeBetweenSemestersorTermsNotLikelytoReturn
+        - StillEmployedFullTime
+        - StillEmployedPartTime
+        - StillEmployedHoursReducedbyEmployer
+        - OnCallorTemporaryStatus
+        - LeaveofAbsence
+        - Retirement
+        - DisciplinarySuspension
+        - LaborDispute
+        - ProfessionalAthleteBetweenSportsSeasons
+        - DisasterRelatedSeparation
+        - NotListedAbove
+        - Notprovided
+      type: string
+      x-nullable: false
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.ActionableAttachment:
+      enum:
+        - InformationalOnlyGeneric
+        - InformationalOnlyEmployerClaimantSpecific
+        - RequiresActionStandardQuestionSet
+        - RequiresActionAdhocQuestionSet
+      type: string
+      x-nullable: false
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.Attachment.SeparationInformationRequestAttachment:
+      type: object
+      properties:
+        actionableAttachment:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.ActionableAttachment'
+        filePath:
+          type: string
+          nullable: true
+          x-nullable: true
+        containerName:
+          type: string
+          nullable: true
+          x-nullable: true
+        uniqueId:
+          type: string
+          nullable: true
+          x-nullable: true
+        fileTypeCode:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.DescriptionOfAttachmentCodes'
+        typeOfDocument:
+          type: string
+          nullable: true
+          x-nullable: true
+      additionalProperties: false
+      x-nullable: true
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestRecord:
+      type: object
+      properties:
+        federalEmployerIdentificationNumber:
+          type: string
+          nullable: true
+          x-nullable: true
+        typeofEmployerCode:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.EmployerTypeCode'
+        typeofClaimCode:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.TypeOfClaimCode'
+        benefitYearBeginDate:
+          type: string
+          format: date-time
+          x-nullable: false
+        requestingStateAbbreviation:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.StateAbrCodes'
+        uiOfficeName:
+          type: string
+          nullable: true
+          x-nullable: true
+        uiOfficePhone:
+          type: string
+          nullable: true
+          x-nullable: true
+        uiOfficeFax:
+          type: string
+          nullable: true
+          x-nullable: true
+        claimantJobTitle:
+          type: string
+          nullable: true
+          x-nullable: true
+        claimantReportedFirstDayofWork:
+          type: string
+          format: date-time
+          nullable: true
+          x-nullable: true
+        claimantReportedLastDayofWork:
+          type: string
+          format: date-time
+          nullable: true
+          x-nullable: true
+        wagesWeeksNeededCode:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.WagesWeeksNeededCode'
+        wagesNeededBeginDate:
+          type: string
+          format: date-time
+          nullable: true
+          x-nullable: true
+        wagesNeededEndDate:
+          type: string
+          format: date-time
+          nullable: true
+          x-nullable: true
+        claimantSepReasonCode:
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.CliamantSeparationReasonCode'
+        claimantSepReasonComments:
+          type: string
+          nullable: true
+          x-nullable: true
+        formNumber:
+          type: string
+          nullable: true
+          x-nullable: true
+        pin:
+          type: string
+          nullable: true
+          x-nullable: true
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Attachment.SeparationInformationRequestAttachment'
+          nullable: true
+          x-nullable: true
+        stateRequestRecordGuid:
+          type: string
+          format: uuid
+          x-nullable: false
+        socialSecurityNumber:
+          type: string
+          nullable: true
+          x-nullable: true
+        claimNumber:
+          type: string
+          nullable: true
+          x-nullable: true
+        stateEmployerAccountNbr:
+          type: string
+          nullable: true
+          x-nullable: true
+        employerName:
+          type: string
+          nullable: true
+          x-nullable: true
+        claimantLastName:
+          type: string
+          nullable: true
+          x-nullable: true
+        otherLastName:
+          type: string
+          nullable: true
+          x-nullable: true
+        claimantFirstName:
+          type: string
+          nullable: true
+          x-nullable: true
+        claimantMiddleInitial:
+          type: string
+          nullable: true
+          x-nullable: true
+        claimantSuffix:
+          type: string
+          nullable: true
+          x-nullable: true
+        claimantReportedReturnToWorkDate:
+          type: string
+          format: date-time
+          nullable: true
+          x-nullable: true
+        requestDate:
+          type: string
+          format: date-time
+          x-nullable: false
+        responseDueDate:
+          type: string
+          format: date-time
+          x-nullable: false
+        claimEffectiveDate:
+          type: string
+          format: date-time
+          x-nullable: false
+        brokerRecordTransactionNumber:
+          type: string
+          nullable: true
+          x-nullable: true
+      additionalProperties: false
+      x-nullable: true
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestCollection:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+          x-nullable: true
+        sein:
+          type: string
+          nullable: true
+          x-nullable: true
+        pin:
+          type: string
+          nullable: true
+          x-nullable: true
+        requestRecords:
+          type: array
+          items:
+            $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestRecord'
+          nullable: true
+          x-nullable: true
+        to:
+          type: string
+          nullable: true
+          x-nullable: true
+        stateRequestFileGuid:
+          type: string
+          format: uuid
+          x-nullable: false
+      additionalProperties: false
+      x-nullable: true
+    Microsoft.AspNetCore.Mvc.OkResult:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+          x-nullable: false
       additionalProperties: false
       x-nullable: true
     SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Requests.SeparationInformationRequestQuery:
