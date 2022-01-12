@@ -6,10 +6,12 @@
 Welcome to State Information Data exchange System's documentation!
 ==================================================================
 
+
+
 .. toctree::
    EarningsVerification
+   Swagger
 
 API Documentation
 ==================
 
-.. openapi:: specs/swagger.yaml
