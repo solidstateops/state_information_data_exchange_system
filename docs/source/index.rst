@@ -15,3 +15,5 @@ Welcome to State Information Data exchange System's documentation!
    QueueMessages
    Swagger
 
+.. raw:: html
+   :file: images/DataFlow.svg
