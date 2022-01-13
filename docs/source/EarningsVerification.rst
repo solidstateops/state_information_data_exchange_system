@@ -3,11 +3,11 @@
 Earnings Verification 
 ==================================================================
 
-[HTTPPost] /EarningVerification/SendFakeResponseCollection
+/EarningVerification/SendFakeResponseCollection
 ############################################################
 
-[HTTPPost] /EarningVerification/postEarningVerificationRequestCollection
+/EarningVerification/postEarningVerificationRequestCollection
 ##########################################################################
 
-[HTTPPost] ​/EarningVerification​/pullEarningVerificationRequest
+​/EarningVerification​/pullEarningVerificationRequest
 ################################################################

@@ -3,11 +3,11 @@
 Separation Information
 ==================================================================
 
-[HttpPost] /SeparationInformation/SendFakeResponseCollection
+/SeparationInformation/SendFakeResponseCollection
 ##############################################################
 
-[HttpPost] /SeparationInformation/pullSeparationInformation
+/SeparationInformation/pullSeparationInformation
 #############################################################
 
-[HttpPost] ​/SeparationInformation​/postStateSeparationRequestCollection
+​/SeparationInformation​/postStateSeparationRequestCollection
 ########################################################################
