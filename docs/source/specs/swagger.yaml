@@ -96,6 +96,93 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/FluentValidation.Results.ValidationResult'
+  /FileAttachement:
+    post:
+      tags:
+        - FileAttachement
+      operationId: FileAttachement_GenerateWriteSASUri
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              type: array
+              items:
+                type: string
+                format: uuid
+                x-nullable: false
+              nullable: true
+              x-nullable: true
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+                format: uuid
+                x-nullable: false
+              nullable: true
+              x-nullable: true
+          text/json:
+            schema:
+              type: array
+              items:
+                type: string
+                format: uuid
+                x-nullable: false
+              nullable: true
+              x-nullable: true
+          application/*+json:
+            schema:
+              type: array
+              items:
+                type: string
+                format: uuid
+                x-nullable: false
+              nullable: true
+              x-nullable: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Service.DTO.FileAttachementWriteResponse'
+                x-nullable: true
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Service.DTO.FileAttachementWriteResponse'
+                x-nullable: true
+  '/FileAttachement/{guid}':
+    post:
+      tags:
+        - FileAttachement
+      operationId: FileAttachement_GenerateBulkWriteSASUri
+      parameters:
+        - name: uniqueId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+            x-nullable: false
+        - name: guid
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Service.DTO.FileAttachementWriteResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Service.DTO.FileAttachementWriteResponse'
   /QueueConsumer:
     get:
       tags:
@@ -1043,6 +1130,20 @@ components:
           $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.StateAbrCodes'
         pullType:
           $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PullType'
+      additionalProperties: false
+      x-nullable: true
+    SolidStateOps.StateInformationDataExchangeSystem.Service.DTO.FileAttachementWriteResponse:
+      type: object
+      properties:
+        uniqueId:
+          type: string
+          format: uuid
+          x-nullable: false
+        writeUri:
+          type: string
+          format: uri
+          nullable: true
+          x-nullable: true
       additionalProperties: false
       x-nullable: true
     SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PostAcknowledgementMessageCode:

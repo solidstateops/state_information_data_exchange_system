@@ -14,6 +14,7 @@ Welcome to State Information Data exchange System's documentation!
    EarningsVerification
    SeparationInformation
    SeparationInformationV2022
+   FileAttachements
    QueueMessages
    Swagger
    ErrorCodes
@@ -51,7 +52,7 @@ Jar Packages
    <dependency>
       <groupId>com.solidstateops</groupId>
       <artifactId>sides-service</artifactId>
-      <version>1.1.51.6</version>
+      <version>1.1.51.7</version>
    </dependency>
 
 *1.6*
@@ -61,7 +62,7 @@ Jar Packages
    <dependency>
       <groupId>com.solidstateops</groupId>
       <artifactId>sides-service-v1.6</artifactId>
-      <version>1.1.51.9</version>
+      <version>1.1.51.10</version>
    </dependency>
 
 .. raw:: html
