@@ -19,16 +19,19 @@ Welcome to State Information Data exchange System's documentation!
    Swagger
    ErrorCodes
 
+`NASWA Sides <https://www.naswa.org/services/sides>`_
+
 Libraries
 =========
 
-Nuget Packages
-##############
+C# Nuget Packages (NetCore 3.1)
+###############################
 `Service Client <https://www.nuget.org/packages/SolidStateOps.StateInformationDataExchangeSystem.Service/>`_
+
 `Queue Messages <https://www.nuget.org/packages/SolidStateOps.StateInformationDataExchangeSystem.Messages/>`_
 
-Jar Packages
-############
+Java Jar Packages
+#################
 
 *Repository*
 

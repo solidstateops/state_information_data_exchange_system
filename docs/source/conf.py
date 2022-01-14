@@ -39,8 +39,6 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
     'sphinx_rtd_theme',
-    'sphinxcontrib.httpdomain',
-    'sphinxcontrib.openapi',
 ]
 
 intersphinx_mapping = {
