@@ -98,9 +98,10 @@ Consumes the ``SeparationInformationResponseCollection`` message.
 
     public async Task ProcessMessage(SeparationInformationResponseCollection message)
     {
+        var sidesSeparationRequestId = message.SidesSeparationRequestID;
+
         foreach (SeparationInformationResponseRecord response in message.Responses)
-        {
-            var sidesSeparationRequestId = request.SidesSeparationRequestID;
+        {           
 
             if (response.AmendedResponse != null)
             {
