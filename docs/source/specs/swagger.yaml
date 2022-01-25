@@ -100,7 +100,7 @@ paths:
     post:
       tags:
         - FileAttachement
-      operationId: FileAttachement_GenerateWriteSASUri
+      operationId: FileAttachement_GenerateBulkWriteSASUri
       requestBody:
         content:
           application/json-patch+json:
@@ -159,7 +159,7 @@ paths:
     post:
       tags:
         - FileAttachement
-      operationId: FileAttachement_GenerateBulkWriteSASUri
+      operationId: FileAttachement_GenerateWriteSASUri
       parameters:
         - name: uniqueId
           in: path
@@ -1627,11 +1627,18 @@ components:
         - Unknown
       type: string
       x-nullable: false
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.ExternalContactTypeCode:
+      enum:
+        - WorkersCompensation
+        - Pension
+        - Plan401K
+      type: string
+      x-nullable: false
     SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Responses.ExternalBusinessContact:
       type: object
       properties:
         externalContactTypeIndicator:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Responses.ExternalBusinessContact'
+          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.ExternalContactTypeCode'
         externalBusinessCompanyName:
           type: string
           nullable: true
