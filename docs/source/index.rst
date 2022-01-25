@@ -55,7 +55,7 @@ Java Jar Packages
    <dependency>
       <groupId>com.solidstateops</groupId>
       <artifactId>sides-service</artifactId>
-      <version>1.1.51.7</version>
+      <version>1.1.51.9</version>
    </dependency>
 
 *1.6*
@@ -65,7 +65,7 @@ Java Jar Packages
    <dependency>
       <groupId>com.solidstateops</groupId>
       <artifactId>sides-service-v1.6</artifactId>
-      <version>1.1.51.10</version>
+      <version>1.1.51.12</version>
    </dependency>
 
 .. raw:: html
