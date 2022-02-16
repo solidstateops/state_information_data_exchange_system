@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: StateInformationDataExchangeSystem.Service API
-  version: 2.1.60.0
+  version: 2.1.117.0
 paths:
   /EarningVerification/SendFakeResponseCollection:
     post:
@@ -2989,6 +2989,25 @@ components:
           x-nullable: true
       additionalProperties: false
       x-nullable: true
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.NotAcknowledged:
+      type: object
+      properties:
+        messageType:
+          type: string
+          nullable: true
+          x-nullable: true
+        exception:
+          nullable: true
+          x-nullable: true
+        correlationId:
+          type: string
+          nullable: true
+          x-nullable: true
+        request:
+          nullable: true
+          x-nullable: true
+      additionalProperties: false
+      x-nullable: true
     SolidStateOps.StateInformationDataExchangeSystem.Service.Controllers.QueueMessages:
       type: object
       properties:
@@ -3010,6 +3029,11 @@ components:
         separationInformationResponseCollection:
           allOf:
             - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Responses.SeparationInformationResponseCollection'
+          nullable: true
+          x-nullable: true
+        notAcknowledged:
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.NotAcknowledged'
           nullable: true
           x-nullable: true
       additionalProperties: false
