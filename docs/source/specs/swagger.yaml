@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: StateInformationDataExchangeSystem.Service API
-  version: v1
+  version: 2.1.122.0
 paths:
   /EarningVerification/SendFakeResponseCollection:
     post:
@@ -12,16 +12,28 @@ paths:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationResponseCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationResponseCollection'
+              nullable: true
+              x-nullable: true
           application/json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationResponseCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationResponseCollection'
+              nullable: true
+              x-nullable: true
           text/json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationResponseCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationResponseCollection'
+              nullable: true
+              x-nullable: true
           application/*+json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationResponseCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationResponseCollection'
+              nullable: true
+              x-nullable: true
       responses:
         '200':
           description: Success
@@ -43,16 +55,28 @@ paths:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationRequestCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationRequestCollection'
+              nullable: true
+              x-nullable: true
           application/json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationRequestCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationRequestCollection'
+              nullable: true
+              x-nullable: true
           text/json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationRequestCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationRequestCollection'
+              nullable: true
+              x-nullable: true
           application/*+json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationRequestCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationRequestCollection'
+              nullable: true
+              x-nullable: true
       responses:
         '200':
           description: Success
@@ -74,16 +98,28 @@ paths:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationRequestQuery'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationRequestQuery'
+              nullable: true
+              x-nullable: true
           application/json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationRequestQuery'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationRequestQuery'
+              nullable: true
+              x-nullable: true
           text/json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationRequestQuery'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationRequestQuery'
+              nullable: true
+              x-nullable: true
           application/*+json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationRequestQuery'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationRequestQuery'
+              nullable: true
+              x-nullable: true
       responses:
         '200':
           description: Success
@@ -155,7 +191,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Service.DTO.FileAttachementWriteResponse'
                 x-nullable: true
-  '/FileAttachement/{guid}':
+  '/FileAttachement/{uniqueId}':
     post:
       tags:
         - FileAttachement
@@ -168,11 +204,6 @@ paths:
             type: string
             format: uuid
             x-nullable: false
-        - name: guid
-          in: path
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           description: Success
@@ -207,16 +238,28 @@ paths:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationResponseCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationResponseCollection'
+              nullable: true
+              x-nullable: true
           application/json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationResponseCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationResponseCollection'
+              nullable: true
+              x-nullable: true
           text/json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationResponseCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationResponseCollection'
+              nullable: true
+              x-nullable: true
           application/*+json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationResponseCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationResponseCollection'
+              nullable: true
+              x-nullable: true
       responses:
         '200':
           description: Success
@@ -238,16 +281,28 @@ paths:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestQuery'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestQuery'
+              nullable: true
+              x-nullable: true
           application/json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestQuery'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestQuery'
+              nullable: true
+              x-nullable: true
           text/json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestQuery'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestQuery'
+              nullable: true
+              x-nullable: true
           application/*+json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestQuery'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestQuery'
+              nullable: true
+              x-nullable: true
       responses:
         '200':
           description: Success
@@ -269,16 +324,28 @@ paths:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestCollection'
+              nullable: true
+              x-nullable: true
           application/json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestCollection'
+              nullable: true
+              x-nullable: true
           text/json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestCollection'
+              nullable: true
+              x-nullable: true
           application/*+json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.SeparationInformationRequestCollection'
+              nullable: true
+              x-nullable: true
       responses:
         '200':
           description: Success
@@ -307,16 +374,28 @@ paths:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Responses.SeparationInformationResponseCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Responses.SeparationInformationResponseCollection'
+              nullable: true
+              x-nullable: true
           application/json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Responses.SeparationInformationResponseCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Responses.SeparationInformationResponseCollection'
+              nullable: true
+              x-nullable: true
           text/json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Responses.SeparationInformationResponseCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Responses.SeparationInformationResponseCollection'
+              nullable: true
+              x-nullable: true
           application/*+json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Responses.SeparationInformationResponseCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Responses.SeparationInformationResponseCollection'
+              nullable: true
+              x-nullable: true
       responses:
         '200':
           description: Success
@@ -338,16 +417,28 @@ paths:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Requests.SeparationInformationRequestQuery'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Requests.SeparationInformationRequestQuery'
+              nullable: true
+              x-nullable: true
           application/json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Requests.SeparationInformationRequestQuery'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Requests.SeparationInformationRequestQuery'
+              nullable: true
+              x-nullable: true
           text/json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Requests.SeparationInformationRequestQuery'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Requests.SeparationInformationRequestQuery'
+              nullable: true
+              x-nullable: true
           application/*+json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Requests.SeparationInformationRequestQuery'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Requests.SeparationInformationRequestQuery'
+              nullable: true
+              x-nullable: true
       responses:
         '200':
           description: Success
@@ -369,16 +460,28 @@ paths:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Requests.SeparationInformationRequestCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Requests.SeparationInformationRequestCollection'
+              nullable: true
+              x-nullable: true
           application/json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Requests.SeparationInformationRequestCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Requests.SeparationInformationRequestCollection'
+              nullable: true
+              x-nullable: true
           text/json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Requests.SeparationInformationRequestCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Requests.SeparationInformationRequestCollection'
+              nullable: true
+              x-nullable: true
           application/*+json:
             schema:
-              $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Requests.SeparationInformationRequestCollection'
+              allOf:
+                - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Requests.SeparationInformationRequestCollection'
+              nullable: true
+              x-nullable: true
       responses:
         '200':
           description: Success
@@ -657,7 +760,9 @@ components:
           format: date-time
           x-nullable: false
         requestingStateAbbreviation:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.StateAbrCodes'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.StateAbrCodes'
+          x-nullable: false
         uiOfficeName:
           type: string
           nullable: true
@@ -715,9 +820,14 @@ components:
           format: date-time
           x-nullable: false
         claimantEmployerWorkRelationshipCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.ClaimantEmployerWorkRelationshipCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.ClaimantEmployerWorkRelationshipCode'
+          x-nullable: false
         employerEarningsCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EmployerEarningsCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EmployerEarningsCode'
+          nullable: true
+          x-nullable: true
         firstDayWorkedinPeriod:
           type: string
           format: date-time
@@ -733,7 +843,10 @@ components:
           nullable: true
           x-nullable: true
         employerSepReasonCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EmployerSeparationReasonCodeMinimal'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EmployerSeparationReasonCodeMinimal'
+          nullable: true
+          x-nullable: true
         employerSeparationReasonComments:
           type: string
           nullable: true
@@ -748,21 +861,30 @@ components:
           nullable: true
           x-nullable: true
         regularRateOfPayPer:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.RateOfPayPer'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.RateOfPayPer'
+          nullable: true
+          x-nullable: true
         overtimeRateOfPay:
           type: number
           format: decimal
           nullable: true
           x-nullable: true
         overtimeRateOfPayPer:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.RateOfPayPer'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.RateOfPayPer'
+          nullable: true
+          x-nullable: true
         trainingPay:
           type: number
           format: decimal
           nullable: true
           x-nullable: true
         trainingPayPer:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.RateOfPayPer'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.RateOfPayPer'
+          nullable: true
+          x-nullable: true
         ratePerMile:
           type: number
           format: decimal
@@ -780,9 +902,14 @@ components:
           nullable: true
           x-nullable: true
         payPeriod:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.PayPeriodCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.PayPeriodCode'
+          x-nullable: false
         dayOfWeekPayPeriodEndDay:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.DayOfWeek'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.DayOfWeek'
+          nullable: true
+          x-nullable: true
         semiMonthlyPayPeriod1StartDate:
           type: string
           format: date-time
@@ -809,7 +936,9 @@ components:
           nullable: true
           x-nullable: true
         preparerTypeCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PreparerTypeCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PreparerTypeCode'
+          x-nullable: false
         preparerCompanyName:
           type: string
           nullable: true
@@ -906,7 +1035,9 @@ components:
           nullable: true
           x-nullable: true
         severity:
-          $ref: '#/components/schemas/FluentValidation.Severity'
+          allOf:
+            - $ref: '#/components/schemas/FluentValidation.Severity'
+          x-nullable: false
         errorCode:
           type: string
           nullable: true
@@ -968,7 +1099,9 @@ components:
           format: uuid
           x-nullable: false
         requestingStateAbbreviation:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.StateAbrCodes'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.StateAbrCodes'
+          x-nullable: false
         uiOfficeName:
           type: string
           nullable: true
@@ -1034,29 +1167,49 @@ components:
           format: date-time
           x-nullable: false
         earningsStatusCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EarningsVerificationStatusCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EarningsVerificationStatusCode'
+          x-nullable: false
         tipsStatusCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EarningsVerificationStatusCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EarningsVerificationStatusCode'
+          x-nullable: false
         commissionStatusCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EarningsVerificationStatusCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EarningsVerificationStatusCode'
+          x-nullable: false
         bonusStatusCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EarningsVerificationStatusCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EarningsVerificationStatusCode'
+          x-nullable: false
         vacationStatusCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EarningsVerificationStatusCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EarningsVerificationStatusCode'
+          x-nullable: false
         sickLeaveStatusCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EarningsVerificationStatusCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EarningsVerificationStatusCode'
+          x-nullable: false
         holidayStatusCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EarningsVerificationStatusCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EarningsVerificationStatusCode'
+          x-nullable: false
         severanceStatusCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EarningsVerificationStatusCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EarningsVerificationStatusCode'
+          x-nullable: false
         wagesInLieuStatusCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EarningsVerificationStatusCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EarningsVerificationStatusCode'
+          x-nullable: false
         responseDueDate:
           type: string
           format: date-time
           x-nullable: false
         earningsVerificationSourceCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EarningsVerificationSourceCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.Enums.EarningsVerificationSourceCode'
+          x-nullable: false
         earningsVerificationResponseCommentIndicator:
           type: boolean
           x-nullable: false
@@ -1127,9 +1280,13 @@ components:
           nullable: true
           x-nullable: true
         requestingState:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.StateAbrCodes'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.StateAbrCodes'
+          x-nullable: false
         pullType:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PullType'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PullType'
+          x-nullable: false
       additionalProperties: false
       x-nullable: true
     SolidStateOps.StateInformationDataExchangeSystem.Service.DTO.FileAttachementWriteResponse:
@@ -1201,7 +1358,9 @@ components:
           format: uuid
           x-nullable: false
         messageCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PostAcknowledgementMessageCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PostAcknowledgementMessageCode'
+          x-nullable: false
         id:
           type: string
           nullable: true
@@ -1246,7 +1405,9 @@ components:
           format: uuid
           x-nullable: false
         messageCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PostAcknowledgementMessageCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PostAcknowledgementMessageCode'
+          x-nullable: false
         id:
           type: string
           nullable: true
@@ -1342,26 +1503,37 @@ components:
         - Monthly
         - Quarterly
         - LumpSum
+        - NotAbleToProvide
       type: string
       x-nullable: false
     SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Responses.Remuneration:
       type: object
       properties:
         remunerationTypeCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.RemunerationTypeCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.RemunerationTypeCode'
+          nullable: true
+          x-nullable: true
         remunerationAmountPerPeriod:
           type: number
           format: decimal
-          x-nullable: false
+          nullable: true
+          x-nullable: true
         remunerationPeriodFrequencyCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.RemunerationPeriodFrequencyCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.RemunerationPeriodFrequencyCode'
+          nullable: true
+          x-nullable: true
         dateRemunerationIssued:
           type: string
           format: date-time
-          x-nullable: false
+          nullable: true
+          x-nullable: true
         employerAllocationIndicator:
-          type: boolean
-          x-nullable: false
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          nullable: true
+          x-nullable: true
         allocationBeginDate:
           type: string
           format: date-time
@@ -1485,7 +1657,9 @@ components:
           nullable: true
           x-nullable: true
         fileTypeCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.v2022.Enums.DescriptionOfAttachmentCodes'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.v2022.Enums.DescriptionOfAttachmentCodes'
+          x-nullable: false
         typeOfDocument:
           type: string
           nullable: true
@@ -1638,7 +1812,9 @@ components:
       type: object
       properties:
         externalContactTypeIndicator:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.ExternalContactTypeCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.ExternalContactTypeCode'
+          x-nullable: false
         externalBusinessCompanyName:
           type: string
           nullable: true
@@ -1696,9 +1872,14 @@ components:
       type: object
       properties:
         pension401KInd:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.RetirementAccountTypeCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.RetirementAccountTypeCode'
+          x-nullable: false
         pension401KFrequencyCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.RetirementFrequencyPeriodCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.RetirementFrequencyPeriodCode'
+          nullable: true
+          x-nullable: true
         pension401KAmountPerPeriod:
           type: number
           format: decimal
@@ -1718,7 +1899,10 @@ components:
           nullable: true
           x-nullable: true
         whoContributedPension401K:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.RetirementContributorCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.RetirementContributorCode'
+          nullable: true
+          x-nullable: true
         claimantPensionContributionPercent:
           type: number
           format: decimal
@@ -1863,13 +2047,11 @@ components:
           format: int32
           nullable: true
           x-nullable: true
-        averageWeeklyWage:
-          type: number
-          format: decimal
+        employerSeparationReasonCode:
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.EmployerSeparationReasonCode'
           nullable: true
           x-nullable: true
-        employerSeparationReasonCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.EmployerSeparationReasonCode'
         returnToWorkIndicator:
           type: boolean
           nullable: true
@@ -1880,13 +2062,19 @@ components:
           nullable: true
           x-nullable: true
         workingAllAvailableHoursIndicator:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          nullable: true
+          x-nullable: true
         notWorkingAvailableHoursReason:
           type: string
           nullable: true
           x-nullable: true
         laborDisputeTypeIndicator:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.LaborDisputeType'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.LaborDisputeType'
+          nullable: true
+          x-nullable: true
         remunerations:
           type: array
           items:
@@ -1906,25 +2094,15 @@ components:
           type: boolean
           nullable: true
           x-nullable: true
-        contributoryorNotContributoryClaimantIndicator:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        claimantPensionContributionPercent:
-          type: integer
-          format: int32
-          nullable: true
-          x-nullable: true
-        pensionComments:
-          type: string
-          nullable: true
-          x-nullable: true
         employerSepReasonComments:
           type: string
           nullable: true
           x-nullable: true
         dischargeReasonCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.DischargeReasonCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.DischargeReasonCode'
+          nullable: true
+          x-nullable: true
         finalIncidentReason:
           type: string
           nullable: true
@@ -1943,7 +2121,10 @@ components:
           nullable: true
           x-nullable: true
         dischargePolicyAwareExplanationCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.DischargeExplanationCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.DischargeExplanationCode'
+          nullable: true
+          x-nullable: true
         priorIncidents:
           type: array
           items:
@@ -1963,9 +2144,15 @@ components:
           nullable: true
           x-nullable: true
         voluntarySepReasonCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.VoluntarySepReasonCodes'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.VoluntarySepReasonCodes'
+          nullable: true
+          x-nullable: true
         hiringAgreementChangesCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.HiringChangesCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.HiringChangesCode'
+          nullable: true
+          x-nullable: true
         hiringAgreementChangesComments:
           type: string
           nullable: true
@@ -1993,7 +2180,9 @@ components:
           nullable: true
           x-nullable: true
         preparerTypeCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PreparerTypeCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PreparerTypeCode'
+          x-nullable: false
         preparerCompanyName:
           type: string
           nullable: true
@@ -2019,9 +2208,15 @@ components:
           nullable: true
           x-nullable: true
         totalEarnedWagesNeededIndicator:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.TotalEarnedWagesNeededIndicatorCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.TotalEarnedWagesNeededIndicatorCode'
+          nullable: true
+          x-nullable: true
         totalWeeksWorkedNeededIndicator:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.TotalWeeksWorkedNeededIndicatorCodes'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.TotalWeeksWorkedNeededIndicatorCodes'
+          nullable: true
+          x-nullable: true
         amendedResponse:
           type: integer
           format: int32
@@ -2032,67 +2227,8 @@ components:
           nullable: true
           x-nullable: true
         remunerationIndicator:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        remunerationNoToAllIndicator:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        pensionIndicator:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        severenceIndicator:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        bonusPayIndicator:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        separationPayIndicator:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        residualPayIndicator:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        vacationIndicator:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        commissionIndicator:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        holidayIndicator:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        sickPayIndicator:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        profitSharingIndicator:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        disabilityIndicator:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        wagesInLieuIndicator:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        backPayIndicator:
-          type: boolean
-          nullable: true
-          x-nullable: true
-        notListAboveIndicator:
-          type: boolean
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
           nullable: true
           x-nullable: true
         attachmentIndicator:
@@ -2113,7 +2249,10 @@ components:
           nullable: true
           x-nullable: true
         claimantNoticeIndicator:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          nullable: true
+          x-nullable: true
         dateNoticeGiven:
           type: string
           format: date-time
@@ -2125,7 +2264,10 @@ components:
           nullable: true
           x-nullable: true
         claimantWorkOutNoticeIndicator:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          nullable: true
+          x-nullable: true
         whyNoticeWasntWorkedOut:
           type: string
           nullable: true
@@ -2139,7 +2281,10 @@ components:
           nullable: true
           x-nullable: true
         claimantRequestMedicalLeaveOfAbsence:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          nullable: true
+          x-nullable: true
         medicalLeaveOfAbsenceAvailable:
           type: boolean
           nullable: true
@@ -2153,7 +2298,10 @@ components:
           nullable: true
           x-nullable: true
         quitUnderAdviceOfHealthcareProvider:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          nullable: true
+          x-nullable: true
         medicalStatementProvidedIndicator:
           type: boolean
           nullable: true
@@ -2163,7 +2311,10 @@ components:
           nullable: true
           x-nullable: true
         workRestrictionsIndicator:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          nullable: true
+          x-nullable: true
         claimantWorkRestrictions:
           type: string
           nullable: true
@@ -2187,7 +2338,10 @@ components:
           nullable: true
           x-nullable: true
         claimantContactToExplainIndicator:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          nullable: true
+          x-nullable: true
         dateMadeContact:
           type: string
           format: date-time
@@ -2214,7 +2368,10 @@ components:
           nullable: true
           x-nullable: true
         reasonForBreak:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.BreakReasonCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.BreakReasonCode'
+          nullable: true
+          x-nullable: true
         firstDayOfBreak:
           type: string
           format: date-time
@@ -2234,7 +2391,10 @@ components:
           nullable: true
           x-nullable: true
         newContractJobIndicator:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          nullable: true
+          x-nullable: true
         personOfferedReasonableAssurance:
           type: string
           nullable: true
@@ -2244,7 +2404,10 @@ components:
           nullable: true
           x-nullable: true
         howOfferConveyed:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.ConveyanceCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.ConveyanceCode'
+          nullable: true
+          x-nullable: true
         whyRetireComments:
           type: string
           nullable: true
@@ -2294,9 +2457,15 @@ components:
           nullable: true
           x-nullable: true
         whyRequestedToTest:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.TestReasons'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.TestReasons'
+          nullable: true
+          x-nullable: true
         whoPerformedTest:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.TestPerformer'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.TestPerformer'
+          nullable: true
+          x-nullable: true
         testerName:
           type: string
           nullable: true
@@ -2314,7 +2483,10 @@ components:
           nullable: true
           x-nullable: true
         secondTestSplitSampleGiven:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknownRefused'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknownRefused'
+          nullable: true
+          x-nullable: true
         secondTestSplitSampleResults:
           type: string
           nullable: true
@@ -2324,7 +2496,10 @@ components:
           nullable: true
           x-nullable: true
         valueAttachedToActIndicator:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          nullable: true
+          x-nullable: true
         dollarValue:
           type: number
           format: decimal
@@ -2339,7 +2514,10 @@ components:
           nullable: true
           x-nullable: true
         wereThereWitnessesIndicator:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknownUndisclosed'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknownUndisclosed'
+          nullable: true
+          x-nullable: true
         witnessInformation:
           type: array
           items:
@@ -2367,19 +2545,34 @@ components:
           nullable: true
           x-nullable: true
         claimantStartAltercationIndicator:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          nullable: true
+          x-nullable: true
         claimantAvoidAltercationIndicator:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          nullable: true
+          x-nullable: true
         whyNotReturning:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.NotReturningCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.NotReturningCode'
+          nullable: true
+          x-nullable: true
         whoReducedHours:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.ClaimantOrEmployer'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.ClaimantOrEmployer'
+          nullable: true
+          x-nullable: true
         whyLeaveOfAbsence:
           type: string
           nullable: true
           x-nullable: true
         agreedReturnToWorkDateIndicator:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          nullable: true
+          x-nullable: true
         paidDuringSuspensionIndicator:
           type: boolean
           nullable: true
@@ -2411,7 +2604,10 @@ components:
           nullable: true
           x-nullable: true
         replacementWorkersHiredIndicator:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          nullable: true
+          x-nullable: true
         clmtStrikingUnionMemberIndicator:
           type: boolean
           nullable: true
@@ -2447,7 +2643,10 @@ components:
           nullable: true
           x-nullable: true
         tempPolicyAwarenessCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.ConveyanceCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.ConveyanceCode'
+          nullable: true
+          x-nullable: true
         claimantProvidedIntendedLastDayWorkUnknown:
           type: boolean
           nullable: true
@@ -2469,7 +2668,10 @@ components:
           nullable: true
           x-nullable: true
         employerState:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.StateAbrCodes'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.StateAbrCodes'
+          nullable: true
+          x-nullable: true
         employerZIP:
           type: string
           nullable: true
@@ -2488,7 +2690,10 @@ components:
           nullable: true
           x-nullable: true
         notWorkingOnAssignment:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.NotWorkingAssignmentCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.NotWorkingAssignmentCode'
+          nullable: true
+          x-nullable: true
         tempAgencyPolicyIndicator:
           type: boolean
           nullable: true
@@ -2513,14 +2718,20 @@ components:
           nullable: true
           x-nullable: true
         dateAppliedForWorkersCompKnownIndicator:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          nullable: true
+          x-nullable: true
         dateAppliedForWorkersComp:
           type: string
           format: date-time
           nullable: true
           x-nullable: true
         typeOfWorkersCompReceiving:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.TypeOfWorkersCompCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.TypeOfWorkersCompCode'
+          nullable: true
+          x-nullable: true
         weeklyWorkersCompRate:
           type: number
           format: decimal
@@ -2531,14 +2742,20 @@ components:
           nullable: true
           x-nullable: true
         claimantReleasedToReturnToWork:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          nullable: true
+          x-nullable: true
         dateClaimantReleased:
           type: string
           format: date-time
           nullable: true
           x-nullable: true
         receivePension401KIndicator:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.RetirementDisbursementCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.RetirementDisbursementCode'
+          nullable: true
+          x-nullable: true
         workersCompComments:
           type: string
           nullable: true
@@ -2562,7 +2779,10 @@ components:
           nullable: true
           x-nullable: true
         fraudReasons:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.FraudReasons'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.FraudReasons'
+          nullable: true
+          x-nullable: true
         fraudComments:
           type: string
           nullable: true
@@ -2589,14 +2809,20 @@ components:
           nullable: true
           x-nullable: true
         fullAmount401KRolledOver:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          nullable: true
+          x-nullable: true
         percentage401KRolledOver:
           type: number
           format: decimal
           nullable: true
           x-nullable: true
         paidOut401KToClaimant:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.YesNoUnknown'
+          nullable: true
+          x-nullable: true
         fraudIndicator:
           type: boolean
           nullable: true
@@ -2611,7 +2837,10 @@ components:
           nullable: true
           x-nullable: true
         rateofPayPerPeriod:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.PayPeriodFrequencyCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.PayPeriodFrequencyCode'
+          nullable: true
+          x-nullable: true
         customaryWeeklyWorkSchedule:
           type: string
           nullable: true
@@ -2655,14 +2884,18 @@ components:
           nullable: true
           x-nullable: true
         tempAssignmentWhoEnded:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.ClaimantEmployerAgencyCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.ClaimantEmployerAgencyCode'
+          nullable: true
+          x-nullable: true
         tempAssignmentWhyNotCompleted:
           type: string
           nullable: true
           x-nullable: true
         refuseToProvideIndicator:
           type: boolean
-          x-nullable: false
+          nullable: true
+          x-nullable: true
         temporaryStaffingIndicator:
           type: boolean
           nullable: true
@@ -2757,17 +2990,53 @@ components:
           x-nullable: true
       additionalProperties: false
       x-nullable: true
+    SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.NotAcknowledged:
+      type: object
+      properties:
+        messageType:
+          type: string
+          nullable: true
+          x-nullable: true
+        exception:
+          nullable: true
+          x-nullable: true
+        correlationId:
+          type: string
+          nullable: true
+          x-nullable: true
+        request:
+          nullable: true
+          x-nullable: true
+      additionalProperties: false
+      x-nullable: true
     SolidStateOps.StateInformationDataExchangeSystem.Service.Controllers.QueueMessages:
       type: object
       properties:
         earningsVerificationRequestAcknowledgement:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationRequestAcknowledgement'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationRequestAcknowledgement'
+          nullable: true
+          x-nullable: true
         earningsVerificationResponseCollection:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationResponseCollection'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.EarningsVerification.EarningsVerificationResponseCollection'
+          nullable: true
+          x-nullable: true
         separationInformationRequestAcknowledgement:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Requests.SeparationInformationRequestAcknowledgement'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Requests.SeparationInformationRequestAcknowledgement'
+          nullable: true
+          x-nullable: true
         separationInformationResponseCollection:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Responses.SeparationInformationResponseCollection'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Responses.SeparationInformationResponseCollection'
+          nullable: true
+          x-nullable: true
+        notAcknowledged:
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.NotAcknowledged'
+          nullable: true
+          x-nullable: true
       additionalProperties: false
       x-nullable: true
     SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.TotalEarnedWagesNeededIndicatorCode:
@@ -2849,13 +3118,18 @@ components:
       type: object
       properties:
         remunerationTypeCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.RemunerationTypeCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.RemunerationTypeCode'
+          nullable: true
+          x-nullable: true
         remunerationAmountPerPeriod:
           type: number
           format: decimal
           x-nullable: false
         remunerationPeriodFrequencyCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.RemunerationPeriodFrequencyCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.RemunerationPeriodFrequencyCode'
+          x-nullable: false
         dateRemunerationIssued:
           type: string
           format: date-time
@@ -2967,7 +3241,9 @@ components:
           nullable: true
           x-nullable: true
         fileTypeCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.DescriptionOfAttachmentCodes'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.DescriptionOfAttachmentCodes'
+          x-nullable: false
         typeOfDocument:
           type: string
           nullable: true
@@ -3017,14 +3293,20 @@ components:
           nullable: true
           x-nullable: true
         totalEarnedWagesNeededInd:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.TotalEarnedWagesNeededIndicatorCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.TotalEarnedWagesNeededIndicatorCode'
+          nullable: true
+          x-nullable: true
         totalEarnedWages:
           type: number
           format: decimal
           nullable: true
           x-nullable: true
         totalWeeksWorkedNeededInd:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.TotalWeeksWorkedNeededIndicatorCodes'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.TotalWeeksWorkedNeededIndicatorCodes'
+          nullable: true
+          x-nullable: true
         totalWeeksWorked:
           type: integer
           format: int32
@@ -3046,7 +3328,9 @@ components:
           nullable: true
           x-nullable: true
         employerSeparationReasonCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.EmployerSeparationReasonCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.EmployerSeparationReasonCode'
+          x-nullable: false
         returnToWorkInd:
           type: boolean
           nullable: true
@@ -3065,7 +3349,10 @@ components:
           nullable: true
           x-nullable: true
         laborDisputeTypeInd:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.LaborDisputeType'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.LaborDisputeType'
+          nullable: true
+          x-nullable: true
         remunerationInd:
           type: boolean
           nullable: true
@@ -3107,7 +3394,10 @@ components:
           nullable: true
           x-nullable: true
         dischargeReasonCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.DischargeReasonCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.DischargeReasonCode'
+          nullable: true
+          x-nullable: true
         finalIncidentReason:
           type: string
           nullable: true
@@ -3126,7 +3416,10 @@ components:
           nullable: true
           x-nullable: true
         dischargePolicyAwareExplanationCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.DischargeExplanationCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.DischargeExplanationCode'
+          nullable: true
+          x-nullable: true
         priorIncidents:
           type: array
           items:
@@ -3146,9 +3439,15 @@ components:
           nullable: true
           x-nullable: true
         voluntarySepReasonCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.VoluntarySepReasonCodes'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.VoluntarySepReasonCodes'
+          nullable: true
+          x-nullable: true
         hiringAgreementChangesCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.HiringChangesCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.HiringChangesCode'
+          nullable: true
+          x-nullable: true
         hiringAgreementChangesComments:
           type: string
           nullable: true
@@ -3176,7 +3475,9 @@ components:
           nullable: true
           x-nullable: true
         preparerTypeCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PreparerTypeCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PreparerTypeCode'
+          x-nullable: false
         preparerCompanyName:
           type: string
           nullable: true
@@ -3321,9 +3622,13 @@ components:
           nullable: true
           x-nullable: true
         requestingState:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.StateAbrCodes'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.StateAbrCodes'
+          x-nullable: false
         pullType:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PullType'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PullType'
+          x-nullable: false
       additionalProperties: false
       x-nullable: true
     SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.EmployerTypeCode:
@@ -3386,7 +3691,9 @@ components:
       type: object
       properties:
         actionableAttachment:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.ActionableAttachment'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.ActionableAttachment'
+          x-nullable: false
         filePath:
           type: string
           nullable: true
@@ -3400,7 +3707,9 @@ components:
           nullable: true
           x-nullable: true
         fileTypeCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.DescriptionOfAttachmentCodes'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.DescriptionOfAttachmentCodes'
+          x-nullable: false
         typeOfDocument:
           type: string
           nullable: true
@@ -3415,15 +3724,22 @@ components:
           nullable: true
           x-nullable: true
         typeofEmployerCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.EmployerTypeCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.EmployerTypeCode'
+          nullable: true
+          x-nullable: true
         typeofClaimCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.TypeOfClaimCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.TypeOfClaimCode'
+          x-nullable: false
         benefitYearBeginDate:
           type: string
           format: date-time
           x-nullable: false
         requestingStateAbbreviation:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.StateAbrCodes'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.StateAbrCodes'
+          x-nullable: false
         uiOfficeName:
           type: string
           nullable: true
@@ -3451,7 +3767,9 @@ components:
           nullable: true
           x-nullable: true
         wagesWeeksNeededCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.WagesWeeksNeededCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.WagesWeeksNeededCode'
+          x-nullable: false
         wagesNeededBeginDate:
           type: string
           format: date-time
@@ -3463,7 +3781,9 @@ components:
           nullable: true
           x-nullable: true
         claimantSepReasonCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.CliamantSeparationReasonCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.Enums.CliamantSeparationReasonCode'
+          x-nullable: false
         claimantSepReasonComments:
           type: string
           nullable: true
@@ -3603,9 +3923,13 @@ components:
           nullable: true
           x-nullable: true
         requestingState:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.StateAbrCodes'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.StateAbrCodes'
+          x-nullable: false
         pullType:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PullType'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.PullType'
+          x-nullable: false
       additionalProperties: false
       x-nullable: true
     SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.EmployerTypeCode:
@@ -3673,7 +3997,9 @@ components:
       type: object
       properties:
         actionableAttachment:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.v2022.Enums.ActionableAttachment'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.v2022.Enums.ActionableAttachment'
+          x-nullable: false
         filePath:
           type: string
           nullable: true
@@ -3683,7 +4009,9 @@ components:
           nullable: true
           x-nullable: true
         fileTypeCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.v2022.Enums.DescriptionOfAttachmentCodes'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.v2022.Enums.DescriptionOfAttachmentCodes'
+          x-nullable: false
         typeOfDocument:
           type: string
           nullable: true
@@ -3705,15 +4033,22 @@ components:
           nullable: true
           x-nullable: true
         typeofEmployerCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.EmployerTypeCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.EmployerTypeCode'
+          nullable: true
+          x-nullable: true
         typeofClaimCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.TypeOfClaimCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.TypeOfClaimCode'
+          x-nullable: false
         benefitYearBeginDate:
           type: string
           format: date-time
           x-nullable: false
         requestingStateAbbreviation:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.StateAbrCodes'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.Common.Enums.StateAbrCodes'
+          x-nullable: false
         uiOfficeName:
           type: string
           nullable: true
@@ -3745,7 +4080,9 @@ components:
           nullable: true
           x-nullable: true
         wagesWeeksNeededCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.WagesWeeksNeededCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.WagesWeeksNeededCode'
+          x-nullable: false
         wagesNeededBeginDate:
           type: string
           format: date-time
@@ -3757,7 +4094,9 @@ components:
           nullable: true
           x-nullable: true
         claimantSepReasonCode:
-          $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.CliamantSeparationReasonCode'
+          allOf:
+            - $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Messages.SeparationInformation.v2022.Enums.CliamantSeparationReasonCode'
+          x-nullable: false
         claimantSepReasonComments:
           type: string
           nullable: true
@@ -3879,8 +4218,8 @@ components:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: https://identity-dev.solidstateops.com/connect/authorize
-          tokenUrl: https://identity-dev.solidstateops.com/connect/token
+          authorizationUrl: https://identity.stag.ga.solidstateops.com/connect/authorize
+          tokenUrl: https://identity.stag.ga.solidstateops.com/connect/token
           scopes:
             api: required
 security:
