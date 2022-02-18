@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: StateInformationDataExchangeSystem.Service API
-  version: 2.1.122.0
+  version: 2.1.143.0
 paths:
   /EarningVerification/SendFakeResponseCollection:
     post:
@@ -214,6 +214,38 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/SolidStateOps.StateInformationDataExchangeSystem.Service.DTO.FileAttachementWriteResponse'
+  /FileAttachement/ReadUri:
+    post:
+      tags:
+        - FileAttachement
+      operationId: FileAttachement_GenerateReadSASUri
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                filePath:
+                  type: string
+                  nullable: true
+                  x-nullable: true
+            encoding:
+              filePath:
+                style: form
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: string
+                format: uri
+                x-nullable: true
+            text/json:
+              schema:
+                type: string
+                format: uri
+                x-nullable: true
   /QueueConsumer:
     get:
       tags:
