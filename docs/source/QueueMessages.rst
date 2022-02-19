@@ -151,3 +151,34 @@ Consumes the ``SeparationInformationResponseCollection`` message.
             }
         }
     }
+    
+NotAcknowledged
+###############################
+Consumes the ``NotAcknowledged`` message.
+
+.. code-block:: csharp
+
+    public async Task ProcessMessage(NotAcknowledged message)
+    {
+        string messageType = message.MessageType;
+        
+        // MessageType will be one of 
+        // EarningsVerificationRequestCollection,
+        // EarningsVerificationRequestQuery,
+        // SeparationInformationRequestCollection,
+        // or SeparationInformationRequestQuery
+        
+        Exception exception = message.Exception;
+        
+        // Generic exception providing details of the error resulting in the NotAcknowledged
+        // message being dispatched
+        
+        string correlationId = message.CorrelationId;
+        
+        // A globally unique identifier string to aid in the process of correlating the 
+        // NotAcknowledged result to the originating request
+        
+        object Request = message.Request;
+
+        // Generic obect containing the body of the originating message that has failed processing
+    }
